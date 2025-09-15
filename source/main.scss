@@ -1,20 +1,13 @@
 @use 'config/reset';
 @use 'config/variaves';
-@use 'sass:math';
-
-@mixin elementoForm($magin:16px) {
-    padding: 8px;
-    display: block;
-    width: 100%;
-    margin-bottom: $magin;
-}
-
-@function pixelParaEm($alvoPixel, $contextoEmPixel:16px) {
-    @return math.div($alvoPixel, $contextoEmPixel)+em;
-}
+@use 'secoes/produtos';
 
 body {
-    background-color: #f0f0f0;
+    background-color: variaves.$corDeFundo;
+}
+
+li {
+    list-style: none;
 }
 
 .container {
@@ -24,59 +17,54 @@ body {
 }
 
 header {
-    padding: 16px 0;
     background-color: variaves.$corPrincipal;
-    text-align: center;
-    color:#ffff
-}
+    position: sticky;
+    top: 0;
+    left: 0;
 
-.form-container {
-    height: calc(100vh - 70px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width:760px;
-
-    h2{
-        font-size: pixelParaEm(48px);
-        text-align:center;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
     }
-
-    form {
-        width: 100%;
-        max-width: 480px;
-        margin-top: 40px;
-
-        label {
+    .menu {
+        display: flex;
+    
+        li {
             font-weight: bold;
-            cursor: pointer;
-        }
-        input{
-            @include elementoForm();
-            background-color: transparent;
-            border: none;
-            border-bottom: 1px solid #000;
-            border-bottom: 3px solid variaves.$corPrincipal;
-        }
-        button{
-            @include elementoForm(16px);
-            background-color: variaves.$corSecundaria;
-            font-size:18px;
-            font-weight: bold;
-            border:none;
-            cursor:pointer;
-            color:#ffff;
-
-            &:hover{
-                background-color: darken(variaves.$corSecundaria, 5%);
+            margin-left: 24px;
+            
+            a {
+                color: #fff;
+                text-decoration: none;
             }
         }
+    
     }
 }
 
-@media (max-width: variaves.$mobile) {
+section {
+    padding: 56px 0;
+}
+
+@media screen and (max-width: variaves.$tablet) {
     .container {
         max-width: 80%;
     }
-}       
+
+    .products {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+
+@media screen and (max-width: variaves.$mobile) {
+    .products {
+        display: block;
+    }
+
+    .product-item  {
+        margin-bottom: 32px;
+    }
+}

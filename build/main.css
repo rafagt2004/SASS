@@ -5,8 +5,38 @@
   font-family: "Roboto", sans-serif;
 }
 
+.products {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 32.66%);
+  column-gap: 1%;
+  row-gap: 4%;
+  width: 100%;
+}
+.products .product-item img {
+  width: 100%;
+  border-radius: 16px;
+}
+.products .product-item .product-button {
+  display: block;
+  background-color: #44bd32;
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 8px;
+  margin-top: 8px;
+  text-decoration: none;
+}
+.products .product-item .product-button:hover {
+  background-color: rgb(79.3493723849, 203.640167364, 60.859832636);
+}
+
 body {
-  background-color: #f0f0f0;
+  background-color: #f5f6fa;
+}
+
+li {
+  list-style: none;
 }
 
 .container {
@@ -16,62 +46,48 @@ body {
 }
 
 header {
-  padding: 16px 0;
-  background-color: #01a3a4;
-  text-align: center;
-  color: white;
+  background-color: #182C61;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
-
-.form-container {
-  height: calc(100vh - 70px);
+header .container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  max-width: 760px;
+  padding: 16px 0;
 }
-.form-container h2 {
-  font-size: 3em;
-  text-align: center;
+header .menu {
+  display: flex;
 }
-.form-container form {
-  width: 100%;
-  max-width: 480px;
-  margin-top: 40px;
-}
-.form-container form label {
+header .menu li {
   font-weight: bold;
-  cursor: pointer;
+  margin-left: 24px;
 }
-.form-container form input {
-  padding: 8px;
-  display: block;
-  width: 100%;
-  margin-bottom: 16px;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #000;
-  border-bottom: 3px solid #01a3a4;
-}
-.form-container form button {
-  padding: 8px;
-  display: block;
-  width: 100%;
-  margin-bottom: 16px;
-  background-color: #00d2d3;
-  font-size: 18px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  color: white;
-}
-.form-container form button:hover {
-  background-color: rgb(0, 184.6208530806, 185.5);
+header .menu li a {
+  color: #fff;
+  text-decoration: none;
 }
 
-@media (max-width: 767px) {
+section {
+  padding: 56px 0;
+}
+
+@media screen and (max-width: 1023px) {
   .container {
     max-width: 80%;
+  }
+  .products {
+    grid-template-columns: repeat(2, 48.5%);
+    column-gap: 3%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .products {
+    display: block;
+  }
+  .product-item {
+    margin-bottom: 32px;
   }
 }
 
